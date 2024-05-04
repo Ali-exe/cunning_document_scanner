@@ -205,6 +205,16 @@ class CunningDocumentScannerPlugin : FlutterPlugin, MethodCallHandler, ActivityA
         }
     }
 
+    // Handle the result of the scanning activity
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == START_DOCUMENT_ACTIVITY && resultCode == Activity.RESULT_OK) {
+            // Handle successful document scanning
+            // Here you can provide the option for editing or retaking the document
+
+        }
+    }
+
     override fun onDetachedFromActivityForConfigChanges() {
 
     }
