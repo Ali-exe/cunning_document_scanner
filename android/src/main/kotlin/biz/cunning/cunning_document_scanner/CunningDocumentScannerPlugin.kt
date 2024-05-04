@@ -175,7 +175,6 @@ class CunningDocumentScannerPlugin : FlutterPlugin, MethodCallHandler, ActivityA
             .setGalleryImportAllowed(isGalleryImportAllowed)
             .setPageLimit(noOfPages)
             .setResultFormats(RESULT_FORMAT_JPEG)
-            //.setScannerMode(SCANNER_MODE_FULL)
             .build()
         val scanner = GmsDocumentScanning.getClient(options)
         scanner.getStartScanIntent(activity).addOnSuccessListener {
@@ -202,16 +201,6 @@ class CunningDocumentScannerPlugin : FlutterPlugin, MethodCallHandler, ActivityA
             } else {
                 pendingResult?.error("ERROR", "Failed to start document scanner Intent", null)
             }
-        }
-    }
-
-    // Handle the result of the scanning activity
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == START_DOCUMENT_ACTIVITY && resultCode == Activity.RESULT_OK) {
-            // Handle successful document scanning
-            // Here you can provide the option for editing or retaking the document
-
         }
     }
 
